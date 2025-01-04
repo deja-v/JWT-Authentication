@@ -25,7 +25,7 @@ async function handleUserLogin(req,res) {
         if(!entry) return res.json({"status":"error", "user":false});
         const token = jwt.sign({
             entry
-        }, "devang12")
+        }, process.env.SECRET_KEY)
         // res.cookie("user",token);
         // res.cookie('jwt', token, { httpOnly: true, secure: false });
         return res.status(200).json({"status":"ok", "user":token});
