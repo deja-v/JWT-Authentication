@@ -16,7 +16,7 @@ async function restrictToLoggedInUser(req, res, next) {
             return res.status(401).json({ error: "Token is required" });
         }
 
-        const decode = jwt.verify(token, process.env.JWT_SECRET || 'devang12');
+        const decode = jwt.verify(token, process.env.JWT_SECRET);
         if (!decode) {
             return res.status(401).json({ error: "Invalid or expired token" });
         }
